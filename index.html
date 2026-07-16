@@ -108,10 +108,12 @@
   .body{flex:1;padding-top:14px}
 
   /* cover letter */
-  .target{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin:8px 0 12px}
+  .target{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin:10px 0 18px}
   .target b{color:var(--muted);font-weight:600}
-  .letter p{margin-bottom:12px;max-width:62ch;color:var(--soft);font-size:13px;line-height:1.55;text-wrap:pretty}
-  .sign{margin-top:10px;color:var(--soft);font-size:13px}
+  /* letter runs the full text block like a real typed letter — 14px keeps the
+     measure inside the readable ~90-char ceiling, so no ragged right void */
+  .letter p{margin-bottom:14px;max-width:none;color:var(--soft);font-size:14px;line-height:1.6;text-wrap:pretty}
+  .sign{margin-top:16px;color:var(--soft);font-size:14px}
   .sign .sig{font-family:var(--serif);font-style:italic;font-size:22px;font-weight:500;letter-spacing:.01em;color:var(--ink);margin-top:4px}
 
   /* resume two-column — grid CANNOT drift */
@@ -167,10 +169,9 @@
   .thesis p{font-size:12.5px;color:var(--soft);line-height:1.55;margin:0}
 
   /* capability map page */
-  /* balanced columns, not row-locked grid — unequal item heights would pool
-     whitespace under short items and shear the page diagonally */
-  .capgrid{columns:2;column-gap:30px;margin-top:0}
-  .cap{break-inside:avoid;margin-bottom:7px}
+  /* row-locked grid keeps category headers level across columns; items are
+     ordered so paired rows have near-equal heights (no whitespace stagger) */
+  .capgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;margin-top:0}
   .cap h4{font-family:var(--serif);font-style:italic;font-size:12px;letter-spacing:.03em;color:var(--soft);margin-bottom:5px;font-weight:600}
   .chips{display:flex;flex-wrap:wrap;gap:4px}
   .chips span{font-size:9.5px;line-height:1;color:var(--muted);background:var(--chip-bg);border:1px solid var(--hair);padding:3px 7px;white-space:nowrap}
@@ -179,8 +180,7 @@
   .flagship .n{font-size:12.5px;font-weight:650;color:var(--ink)}
   .flagship .d{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.46}
   .flagship .d b{color:var(--sea);font-weight:600}
-  .workgrid{columns:2;column-gap:26px}
-  .workgrid .item{break-inside:avoid;margin-bottom:6px}
+  .workgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 26px}
   .workgrid .item .n{font-size:11.5px;font-weight:650;color:var(--ink)}
   .workgrid .item .d{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.38}
   .tag{font-family:var(--mono);font-size:8px;letter-spacing:.14em;font-weight:600;margin-left:8px;vertical-align:1.5px;white-space:nowrap}
@@ -209,9 +209,7 @@
     .cols{grid-template-columns:1fr;gap:0}
     .cols .main{padding-right:0;border-right:0;border-bottom:1px solid var(--hair);padding-bottom:18px;margin-bottom:18px}
     .cols .side{padding-left:0}
-    .traits{grid-template-columns:1fr;gap:13px 0}
-    .capgrid,.workgrid{columns:1}
-    .cap,.workgrid .item{margin-bottom:14px}
+    .capgrid,.workgrid,.traits{grid-template-columns:1fr;gap:13px 0}
     .proc{grid-template-columns:80px 1fr;column-gap:12px}
     .quote{font-size:16px;margin:16px 0 0}
     .target{font-size:11px;line-height:1.6}
@@ -495,20 +493,20 @@
             <div class="d">Zero-dependency Node.js knowledge graph of Microsoft’s org — deterministic content-addressed ingestion, graph-native BM25 retrieval (no vectors), WebGL2 topology UI, read-only self-fact-checking assistant.</div>
           </div>
           <div class="item">
-            <div class="n">tbot<span class="tag sys">TRADING</span></div>
-            <div class="d">Pure-math Rust market maker for Polymarket crypto contracts — 20 crates pricing fair value in nanoseconds, no LLM. 67% win rate in months of simulation against live market data; held from real trading for compliance.</div>
-          </div>
-          <div class="item">
-            <div class="n">gritty<span class="tag sys">RUST</span></div>
-            <div class="d">Native Windows terminal multiplexer in Rust, rendered on CPU — no GPU, no Electron. Tabs, splits, session restore in a sub-800 KB binary.</div>
-          </div>
-          <div class="item">
             <div class="n">El Niño<span class="tag sys">FORECASTING</span></div>
             <div class="d">Deterministic ENSO→commodity forecasting engine — every prediction sealed in a write-once ledger and graded against reality; a single as-of gate makes future-data leakage impossible.</div>
           </div>
           <div class="item">
+            <div class="n">tbot<span class="tag sys">TRADING</span></div>
+            <div class="d">Pure-math Rust market maker for Polymarket crypto contracts — 20 crates pricing fair value in nanoseconds, no LLM. 67% win rate in months of simulation against live market data; held from real trading for compliance.</div>
+          </div>
+          <div class="item">
             <div class="n">Blue Dragon Coins<span class="tag sys">E-COMMERCE</span></div>
             <div class="d">E-commerce company I built end to end — a Rust live-commerce trust stack: SHA-256-locked pack manifests, append-only audit ledger, custody reconciliation across public site, buyer app, and admin.</div>
+          </div>
+          <div class="item">
+            <div class="n">gritty<span class="tag sys">RUST</span></div>
+            <div class="d">Native Windows terminal multiplexer in Rust, rendered on CPU — no GPU, no Electron. Tabs, splits, session restore in a sub-800 KB binary.</div>
           </div>
         </div>
       </div>
