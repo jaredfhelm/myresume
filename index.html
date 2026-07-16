@@ -16,7 +16,8 @@
     --bg:#0b0e13; --panel:#111621; --line:#232c3a; --line-soft:#1a212c;
     --ink:#e9eef5; --muted:#9aa6b5; --faint:#6b7889;
     --teal:#4fc3a1; --amber:#d7a64b;
-    --sans:"Inter","Segoe UI",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    --sans:"Segoe UI",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    --serif:Georgia,"Palatino Linotype","Times New Roman",serif;
     --mono:"JetBrains Mono","SF Mono",ui-monospace,Consolas,"Courier New",monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -38,27 +39,26 @@
 
   /* header + contact (repeats each page) */
   .head{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--line)}
-  .name{font-size:22px;font-weight:700;letter-spacing:.14em}
+  .name{font-family:var(--serif);font-size:23px;font-weight:700;letter-spacing:.06em}
   .name .dot{color:var(--teal)}
-  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase;text-align:right;padding-top:6px}
+  .kicker{font-family:var(--serif);font-style:italic;font-size:13.5px;letter-spacing:.04em;color:var(--muted);text-align:right;padding-top:6px}
   .id{display:flex;align-items:center;gap:15px}
   .avatar{width:62px;height:62px;border-radius:50%;flex:none;background-image:url(data:image/jpeg;base64,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);
-    background-size:cover;background-position:center;border:1px solid var(--line);box-shadow:0 0 0 2px rgba(79,195,161,.28)}
+    background-size:cover;background-position:center;border:1px solid var(--line)}
   .contact{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.02em;margin-top:4px;display:flex;flex-wrap:wrap;gap:4px 14px}
   .contact span{white-space:nowrap}
   .contact i{color:var(--faint);font-style:normal}
 
   /* footer pinned bottom */
   .foot{margin-top:auto;padding-top:12px;border-top:1px solid var(--line-soft);
-    display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.1em}
+    display:flex;justify-content:space-between;font-family:var(--serif);font-size:9.5px;color:var(--faint);letter-spacing:.14em}
 
   /* generic type */
-  h2.sec{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;margin:0 0 12px;font-weight:600}
+  h2.sec{font-family:var(--serif);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin:0 0 12px;font-weight:700}
   p{margin:0 0 11px;color:var(--ink)}
   .lead{color:var(--muted)}
-  .quote{font-family:var(--mono);font-size:12.5px;color:var(--ink);border-left:2px solid var(--teal);
+  .quote{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink);border-left:1px solid var(--faint);
     padding:8px 0 8px 14px;margin:10px 0 12px;line-height:1.55}
-  .quote::before{content:"› ";color:var(--teal)}
 
   /* content body grows */
   .body{flex:1;padding-top:12px}
@@ -78,9 +78,9 @@
   .job{margin-bottom:9px}
   .job .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
   .job .title{font-size:13.5px;font-weight:700;color:var(--ink)}
-  .job .when{flex:none;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:#05100c;
-    background:var(--amber);border-radius:3px;padding:2px 7px;font-weight:600;white-space:nowrap}
-  .job .org{font-family:var(--mono);font-size:11px;color:var(--teal);margin:2px 0 5px;letter-spacing:.02em}
+  .job .when{flex:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--amber);
+    font-weight:600;white-space:nowrap}
+  .job .org{font-size:11.5px;font-weight:600;color:var(--teal);margin:2px 0 5px;letter-spacing:.02em}
   .job .desc{font-size:11.5px;color:var(--muted);line-height:1.42}
 
   .side .block{margin-bottom:16px}
@@ -93,7 +93,7 @@
   .edu .field{color:var(--faint);font-family:var(--mono);font-size:10px;margin-top:2px}
 
   /* narrative page */
-  .h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin:20px 0 8px}
+  .h3{font-family:var(--serif);font-size:12.5px;letter-spacing:.1em;color:var(--ink);font-weight:700;text-transform:uppercase;margin:20px 0 8px}
   .h3:first-child{margin-top:0}
   .panel{background:var(--panel);border:1px solid var(--line-soft);border-radius:7px;padding:14px 16px;margin:6px 0 16px}
   .traits{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;margin:6px 0 16px}
@@ -107,7 +107,7 @@
   .proc .what b{color:var(--ink)}
   .proc .what span{color:var(--muted)}
 
-  .thesis{background:var(--panel);border-left:2px solid var(--amber);border-radius:0 7px 7px 0;padding:12px 16px;margin-top:6px}
+  .thesis{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 16px;margin-top:6px}
   /* page 3 runs lighter than its siblings — open the vertical rhythm so it fills the sheet */
   .page:nth-of-type(3) .h3{margin-top:30px}
   .page:nth-of-type(3) .h3:first-child{margin-top:6px}
@@ -120,19 +120,18 @@
 
   /* capability map page */
   .capgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 30px;margin-top:0}
-  .cap h4{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-bottom:3px;font-weight:600}
-  .cap h4 i{color:var(--teal);font-style:normal;margin-right:5px}
+  .cap h4{font-family:var(--serif);font-style:italic;font-size:11.5px;letter-spacing:.04em;color:var(--muted);margin-bottom:3px;font-weight:700}
   .chips{display:flex;flex-wrap:wrap;gap:4px}
-  .chips span{font-size:10px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:2px 6px;white-space:nowrap}
+  .chips span{font-size:10px;color:var(--ink);background:var(--panel);border-radius:2px;padding:2px 7px;white-space:nowrap}
   .work{margin-top:2px}
-  .flagship{background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--amber);border-radius:7px;padding:6px 12px;margin-bottom:5px}
+  .flagship{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:7px 12px;margin-bottom:5px}
   .flagship .n{font-size:12.5px;font-weight:700;color:var(--ink)}
   .flagship .d{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.46}
   .flagship .d b{color:var(--teal);font-weight:600}
   .workgrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
   .workgrid .item .n{font-size:11.5px;font-weight:700;color:var(--ink)}
   .workgrid .item .d{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.35}
-  .tag{font-family:var(--mono);font-size:8px;letter-spacing:.08em;padding:1px 5px;border-radius:3px;margin-left:6px;vertical-align:1.5px;font-weight:600;white-space:nowrap}
+  .tag{font-family:var(--mono);font-size:8px;letter-spacing:.08em;padding:1px 5px;border-radius:2px;margin-left:6px;vertical-align:1.5px;font-weight:600;white-space:nowrap}
   .tag.rev{background:var(--amber);color:#120c02}
   .tag.oss{background:rgba(79,195,161,.15);color:var(--teal);border:1px solid rgba(79,195,161,.32)}
   .tag.sys{background:rgba(154,166,181,.10);color:var(--muted);border:1px solid var(--line)}
@@ -209,7 +208,7 @@
       <p>Thank you for your time and consideration.</p>
       <div class="sign">Sincerely,<div class="sig">Jared F. Helm</div></div>
     </div>
-    <div class="foot"><span>JARED F. HELM // EXECUTIVE PORTFOLIO</span><span>Page 1</span></div>
+    <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 1</span></div>
   </section>
 
   <!-- ============ PAGE 2 — EXECUTIVE RESUME ============ -->
@@ -290,7 +289,7 @@
         </div>
       </div>
     </div>
-    <div class="foot"><span>JARED F. HELM // EXECUTIVE PORTFOLIO</span><span>Page 2</span></div>
+    <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 2</span></div>
   </section>
 
   <!-- ============ PAGE 3 — LEADERSHIP NARRATIVE ============ -->
@@ -339,7 +338,7 @@
         <p>The account everyone else calls difficult is usually the one nobody has listened to. The tangled stack, the shifting scope, the stakeholders who have stopped believing — I learn the business, earn a seat at the table, and the relationship outlasts the contract.</p>
       </div>
     </div>
-    <div class="foot"><span>JARED F. HELM // EXECUTIVE PORTFOLIO</span><span>Page 3</span></div>
+    <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 3</span></div>
   </section>
 
   <!-- ============ PAGE 4 — CAPABILITY MAP ============ -->
@@ -361,19 +360,19 @@
       <div class="h3">What I Bring Into The Room</div>
       <div class="capgrid">
         <div class="cap">
-          <h4><i>//</i>Customer &amp; Account Leadership</h4>
+          <h4>Customer &amp; Account Leadership</h4>
           <div class="chips"><span>Relationship Building</span><span>Strategic Account Acquisition</span><span>Customer Success Planning</span><span>Delivery Orchestration</span><span>Discovery &amp; Demos</span><span>POCs &amp; Onboarding</span><span>Security Questionnaires</span><span>Escalation Management</span><span>Executive Briefings</span><span>CRM Handoffs</span></div>
         </div>
         <div class="cap">
-          <h4><i>//</i>Program &amp; Delivery Leadership</h4>
+          <h4>Program &amp; Delivery Leadership</h4>
           <div class="chips"><span>Technical Program Management</span><span>Program Governance</span><span>Cross-Functional Orchestration</span><span>Team Building</span><span>Budgeting &amp; Procurement</span><span>Vendor Management</span><span>Resource Management</span><span>Risk &amp; Dependency Management</span><span>Stakeholder Alignment</span><span>TDD &amp; Agile Cadences</span></div>
         </div>
         <div class="cap">
-          <h4><i>//</i>AI / Systems Automation</h4>
+          <h4>AI / Systems Automation</h4>
           <div class="chips"><span>LLM Agents</span><span>Tool-Calling</span><span>RAG / Embeddings</span><span>Model Routing</span><span>Context Engineering</span><span>Proof-Gated Automation</span><span>Multi-Agent Debate</span><span>Evaluation Flows</span><span>Approval Gates</span><span>Dashboards / Internal Tools</span></div>
         </div>
         <div class="cap">
-          <h4><i>//</i>Engineering / Tools / Stack</h4>
+          <h4>Engineering / Tools / Stack</h4>
           <div class="chips"><span>TypeScript</span><span>Python</span><span>Rust</span><span>Java</span><span>Node.js</span><span>Next.js / React</span><span>PostgreSQL</span><span>SQLite</span><span>REST APIs</span><span>Docker</span><span>AWS</span><span>Cloudflare</span><span>Railway</span><span>Playwright</span></div>
         </div>
       </div>
@@ -427,7 +426,7 @@
 
       <p class="closing">AI operations, project leadership, and business execution are no longer separate lanes. The companies that win will be the ones that never forget the human on the other side of the table — and build the systems that support them.</p>
     </div>
-    <div class="foot"><span>JARED F. HELM // EXECUTIVE PORTFOLIO</span><span>Page 4</span></div>
+    <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 4</span></div>
   </section>
 
 </div>
