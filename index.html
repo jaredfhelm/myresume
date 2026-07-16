@@ -108,14 +108,16 @@
   .body{flex:1;padding-top:14px}
 
   /* cover letter */
-  .target{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin:10px 0 18px}
+  .target{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin:0 0 26px}
   .target b{color:var(--muted);font-weight:600}
-  /* letter runs the full text block like a real typed letter — 14px keeps the
-     measure inside the readable ~90-char ceiling, so no ragged right void */
-  .letter p{margin-bottom:14px;max-width:none;color:var(--soft);font-size:14px;line-height:1.6;text-wrap:pretty}
+  /* letter runs the full text block like a real typed letter, and the block is
+     optically centered between letterhead and folio — classic short-letter
+     setting, no dead space pooling at the bottom */
+  .letter{display:flex;flex-direction:column;justify-content:center}
+  .letter p{margin-bottom:16px;max-width:none;color:var(--soft);font-size:14.5px;line-height:1.66;text-wrap:pretty}
   .letter .ld{color:var(--ink);font-weight:650}
-  .sign{margin-top:16px;color:var(--soft);font-size:14px}
-  .sign .sig{font-family:var(--serif);font-style:italic;font-size:22px;font-weight:500;letter-spacing:.01em;color:var(--ink);margin-top:4px}
+  .sign{margin-top:20px;color:var(--soft);font-size:14.5px}
+  .sign .sig{font-family:var(--serif);font-style:italic;font-size:24px;font-weight:500;letter-spacing:.01em;color:var(--ink);margin-top:6px}
 
   /* resume two-column — grid CANNOT drift */
   .cols{display:grid;grid-template-columns:1.62fr 1fr;gap:0}
@@ -315,7 +317,7 @@
         </div>
       </div>
     </div>
-    <div class="quote">I built a career refusing to choose between the codebase and the customer.</div>
+    <div class="quote">Never let the person across the table be surprised.</div>
     <div class="body cols">
       <div class="main">
         <h2 class="sec">Experience</h2>
