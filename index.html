@@ -44,11 +44,15 @@
     font-family:var(--mono);font-size:11.5px;color:var(--muted)}
   .bar b{color:var(--ink);font-weight:600}
   .bar .hint{color:var(--faint)}
-  .bar button{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);
+  .bar button,.bar a.btn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);
     background:transparent;border:1px solid var(--gold-dim);border-radius:0;padding:8px 16px;
-    font-weight:600;cursor:pointer;transition:background-color .15s ease,color .15s ease}
-  .bar button:hover{background:var(--gold);color:#161005}
-  .bar button:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+    font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;
+    transition:background-color .15s ease,color .15s ease}
+  .bar button:hover,.bar a.btn:hover{background:var(--gold);color:#161005}
+  .bar button:focus-visible,.bar a.btn:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+  .bar .actions{display:flex;gap:8px;flex:none}
+  .bar button.alt{color:var(--muted);border-color:var(--line)}
+  .bar button.alt:hover{background:var(--muted);color:#0b0e13}
 
   /* page — US Letter */
   .sheet{max-width:8.5in;margin:30px auto 44px;display:flex;flex-direction:column;gap:30px}
@@ -231,8 +235,11 @@
 
 <div class="bar">
   <span><b>Jared F. Helm</b> — Executive Portfolio</span>
-  <span class="hint">Save as PDF: Ctrl/Cmd-P → destination “Save as PDF” → enable “Background graphics”, margins “None”</span>
-  <button onclick="window.print()">Save as PDF ↓</button>
+  <span class="hint">Prefer to print? Ctrl/Cmd-P — enable “Background graphics”, margins “None”</span>
+  <span class="actions">
+    <button type="button" id="docxBtn" class="alt">Download Word ↓</button>
+    <a class="btn" href="Jared-F-Helm-Executive-Portfolio.pdf" download>Download PDF ↓</a>
+  </span>
 </div>
 
 <div class="sheet">
@@ -485,5 +492,106 @@
   </section>
 
 </div>
+
+<script>
+/* Word export — builds a real .docx (OOXML, stored zip) from the live DOM.
+   Zero dependencies, works offline; light single-column layout so Word/ATS
+   parse it cleanly. Copy is read from the page — single source of truth. */
+(function(){
+  var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var esc=function(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+  var txt=function(el){return el?el.textContent.replace(/\s+/g,' ').trim():''};
+  var run=function(t,o){o=o||{};var f=o.serif?'Georgia':'Calibri';
+    return '<w:r><w:rPr><w:rFonts w:ascii="'+f+'" w:hAnsi="'+f+'"/>'+(o.bold?'<w:b/>':'')+(o.italic?'<w:i/>':'')+
+      (o.caps?'<w:caps/>':'')+'<w:sz w:val="'+(o.size||22)+'"/><w:color w:val="'+(o.color||'1A1A1A')+'"/></w:rPr>'+
+      '<w:t xml:space="preserve">'+esc(t)+'</w:t></w:r>'};
+  var par=function(runs,o){o=o||{};return '<w:p><w:pPr><w:spacing w:before="'+(o.before||0)+'" w:after="'+
+    (o.after==null?120:o.after)+'" w:line="276" w:lineRule="auto"/></w:pPr>'+runs+'</w:p>'};
+  var P=function(t,o){return par(run(t,o),o)};
+
+  function walk(root,out){
+    for(var i=0;i<root.children.length;i++){var el=root.children[i];
+      if(el.classList.contains('target')){out.push(P(txt(el),{size:18,color:'8A6D3B',after:160}));}
+      else if(el.matches('h2.sec, .h3')){out.push(P(txt(el),{serif:true,bold:true,caps:true,size:22,before:240,after:100}));}
+      else if(el.matches('.quote')){out.push(P(txt(el),{serif:true,italic:true,size:24,after:160}));}
+      else if(el.matches('.sign')){out.push(P('Sincerely,',{size:21,before:120,after:40}));
+        out.push(P(txt(el.querySelector('.sig')),{serif:true,italic:true,bold:true,size:28}));}
+      else if(el.matches('.job')){
+        out.push(par(run(txt(el.querySelector('.title')),{bold:true,size:22})+
+          run('   '+txt(el.querySelector('.when')),{size:16,color:'8A6D3B',bold:true}),{before:140,after:20}));
+        out.push(P(txt(el.querySelector('.org')),{serif:true,italic:true,size:21,after:40}));
+        out.push(P(txt(el.querySelector('.desc')),{size:20,color:'333333',after:100}));}
+      else if(el.matches('ul')){$$(':scope > li',el).forEach(function(li){out.push(P('•   '+txt(li),{size:20,after:40}))});}
+      else if(el.matches('.proc')){var k=el.children;
+        for(var j=0;j+1<k.length;j+=2){out.push(par(run(txt(k[j])+' — ',{bold:true,size:20,color:'8A6D3B'})+
+          run(txt(k[j+1]),{size:20,color:'333333'}),{after:80}));}}
+      else if(el.matches('.thesis')){out.push(P(txt(el.querySelector('.lbl')),{caps:true,bold:true,size:18,color:'8A6D3B',before:160,after:40}));
+        out.push(P(txt(el.querySelector('p')),{serif:true,italic:true,size:22,after:120}));}
+      else if(el.matches('.cap')){out.push(P(txt(el.querySelector('h4')),{serif:true,italic:true,bold:true,size:21,before:100,after:30}));
+        out.push(P($$('.chips span',el).map(txt).join(' · '),{size:19,color:'333333',after:100}));}
+      else if(el.matches('.flagship, .item')){
+        var n=el.querySelector('.n').cloneNode(true),tg=n.querySelector('.tag'),tag=tg?txt(tg):'';if(tg)tg.remove();
+        out.push(par(run(txt(n),{bold:true,size:21})+(tag?run('   '+tag,{size:15,color:'8A6D3B',bold:true}):''),{before:100,after:20}));
+        out.push(P(txt(el.querySelector('.d')),{size:19,color:'333333',after:80}));}
+      else if(el.matches('.school')){out.push(P(txt(el),{bold:true,size:21,after:20}));}
+      else if(el.matches('.field')){out.push(P(txt(el),{size:18,color:'666666',after:80}));}
+      else if(el.matches('p')){out.push(P(txt(el),{size:21,color:'333333',after:120}));}
+      else if(el.children.length){walk(el,out);}
+    }
+  }
+
+  function buildBody(){
+    var out=[],pages=$$('.page');
+    pages.forEach(function(pg,i){
+      var kicker=txt(pg.querySelector('.kicker'));
+      if(i===0){
+        out.push(P(txt(pg.querySelector('.name')),{serif:true,bold:true,size:40,after:60}));
+        out.push(P($$('.contact span',pg).map(txt).join('  ·  '),{size:18,color:'666666',after:200}));
+      }
+      out.push(P(kicker,{caps:true,bold:true,size:20,color:'8A6D3B',before:i?400:120,after:160}));
+      var q=pg.querySelector(':scope > .quote');if(q){out.push(P(txt(q),{serif:true,italic:true,size:24,after:160}));}
+      walk(pg.querySelector('.body'),out);
+    });
+    return out.join('');
+  }
+
+  var bytes=function(s){return new TextEncoder().encode(s)};
+  var CRC=(function(){var t=[],i,k,c;for(i=0;i<256;i++){c=i;for(k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[i]=c>>>0}
+    return function(b){var c=0xFFFFFFFF,i;for(i=0;i<b.length;i++)c=t[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0}})();
+  function zip(entries){
+    var chunks=[],cd=[],off=0;
+    entries.forEach(function(e){
+      var nb=bytes(e[0]),data=e[1],crc=CRC(data);
+      var l=new DataView(new ArrayBuffer(30));
+      l.setUint32(0,0x04034b50,true);l.setUint16(4,20,true);l.setUint32(14,crc,true);
+      l.setUint32(18,data.length,true);l.setUint32(22,data.length,true);l.setUint16(26,nb.length,true);
+      chunks.push(new Uint8Array(l.buffer),nb,data);
+      var c=new DataView(new ArrayBuffer(46));
+      c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint32(16,crc,true);
+      c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);c.setUint16(28,nb.length,true);c.setUint32(42,off,true);
+      cd.push(new Uint8Array(c.buffer),nb);
+      off+=30+nb.length+data.length;
+    });
+    var cdLen=cd.reduce(function(s,a){return s+a.length},0);
+    var e=new DataView(new ArrayBuffer(22));
+    e.setUint32(0,0x06054b50,true);e.setUint16(8,entries.length,true);e.setUint16(10,entries.length,true);
+    e.setUint32(12,cdLen,true);e.setUint32(16,off,true);
+    return new Blob(chunks.concat(cd,[new Uint8Array(e.buffer)]),
+      {type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+  }
+
+  var CT='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>';
+  var RELS='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>';
+
+  document.getElementById('docxBtn').addEventListener('click',function(){
+    var doc='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'+
+      buildBody()+'<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="1080" w:right="1150" w:bottom="1080" w:left="1150"/></w:sectPr></w:body></w:document>';
+    var blob=zip([['[Content_Types].xml',bytes(CT)],['_rels/.rels',bytes(RELS)],['word/document.xml',bytes(doc)]]);
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='Jared-F-Helm-Executive-Portfolio.docx';a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href)},4000);
+  });
+})();
+</script>
 </body>
 </html>
