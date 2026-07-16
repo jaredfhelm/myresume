@@ -64,10 +64,10 @@
   .body{flex:1;padding-top:12px}
 
   /* cover letter */
-  .target{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--amber);margin:6px 0 8px}
+  .target{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--amber);margin:8px 0 9px}
   .target b{color:var(--muted);font-weight:600}
-  .letter p{margin-bottom:6px;max-width:62ch;color:#dbe3ec}
-  .sign{margin-top:8px}
+  .letter p{margin-bottom:12px;max-width:64ch;color:#dbe3ec;font-size:13px;line-height:1.55}
+  .sign{margin-top:10px}
   .sign .sig{font-size:19px;font-weight:700;letter-spacing:.08em;color:var(--ink);margin-top:2px}
 
   /* resume two-column — grid CANNOT drift */
@@ -108,6 +108,13 @@
   .proc .what span{color:var(--muted)}
 
   .thesis{background:var(--panel);border-left:2px solid var(--amber);border-radius:0 7px 7px 0;padding:12px 16px;margin-top:6px}
+  /* page 3 runs lighter than its siblings — open the vertical rhythm so it fills the sheet */
+  .page:nth-of-type(3) .h3{margin-top:30px}
+  .page:nth-of-type(3) .h3:first-child{margin-top:6px}
+  .page:nth-of-type(3) .traits{gap:14px 22px;margin:12px 0 22px}
+  .page:nth-of-type(3) .proc{row-gap:18px;margin:14px 0 24px}
+  .page:nth-of-type(3) .thesis{padding:16px 18px;margin-top:16px}
+  .page:nth-of-type(3) p{margin-bottom:13px}
   .thesis .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--amber);text-transform:uppercase;margin-bottom:6px}
   .thesis p{font-size:12.5px;color:#dbe3ec;margin:0}
 
@@ -152,6 +159,7 @@
     .capgrid,.workgrid,.traits{grid-template-columns:1fr;gap:12px 0}
     .proc{grid-template-columns:74px 1fr;column-gap:12px}
     .letter p,.closing,.lead{max-width:none}
+    .letter p{font-size:1em}
   }
 
   @media print{
