@@ -100,15 +100,15 @@
     color:var(--muted);text-transform:uppercase;font-weight:700;margin:0 0 12px}
   h2.sec::after{content:"";flex:1;height:1px;background:var(--hair)}
   p{margin:0 0 11px;color:var(--ink)}
-  .lead{color:var(--muted);font-size:13px;line-height:1.55}
+  .lead{font-family:var(--serif);font-style:italic;color:var(--soft);font-size:13.5px;line-height:1.5}
   .quote{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--soft);border-left:2px solid var(--gold-dim);
-    padding:4px 0 4px 16px;margin:4px 0 0;line-height:1.45}
+    padding:5px 0 5px 16px;margin:12px 0 6px;line-height:1.45}
 
   /* content body grows */
   .body{flex:1;padding-top:10px}
 
   /* cover letter */
-  .target{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin:0 0 26px}
+  .target{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--gold);margin:0 0 26px}
   .target b{color:var(--muted);font-weight:600}
   /* letter runs the full text block like a real typed letter, and the block is
      optically centered between letterhead and folio — classic short-letter
@@ -148,7 +148,7 @@
   .h3::after{content:"";flex:1;height:1px;background:var(--hair)}
   .h3:first-child{margin-top:0}
   .h3.snug{margin-top:16px}
-  .lead.snug{margin-bottom:14px}
+  .lead.snug{margin:2px 0 20px}
 
   /* MAP / EXPOSE / BUILD — grid rows aligned to labels */
   .proc{display:grid;grid-template-columns:96px 1fr;row-gap:13px;column-gap:18px;margin:9px 0 17px}
@@ -159,7 +159,7 @@
 
 
   /* merged narrative band on the resume page */
-  .narr .h3{margin-top:12px}
+  .narr .h3{margin-top:10px}
   .narr > p{font-size:12.5px;line-height:1.5;margin-bottom:6px;color:var(--ink)}
   .narr .proc{grid-auto-flow:column;grid-template-rows:auto auto;grid-template-columns:repeat(3,1fr);row-gap:4px;column-gap:22px;margin:8px 0 0}
   .narr .proc .what{font-size:11.5px;line-height:1.45}
@@ -177,15 +177,13 @@
   .tag.oss{color:var(--sea)}
   .tag.sys{color:var(--faint)}
   .tag.plat{color:var(--gold)}
-  .works{display:grid;grid-template-columns:150px 1fr;row-gap:26px;column-gap:20px;align-items:baseline}
+  .works{display:grid;grid-template-columns:150px 1fr;row-gap:32px;column-gap:20px;align-items:baseline}
   .works .item{display:contents}
   .works .n{font-size:13.5px;font-weight:650;color:var(--ink)}
   .works .n .tag{display:block;margin:3px 0 0}
   .works .d{font-size:13px;color:var(--muted);line-height:1.6}
-  .also{margin-top:26px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--hair);padding-top:16px}
-  .also .out{margin-right:8px}
   .out{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
-  .closing{margin-top:20px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--soft);
+  .closing{margin-top:30px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--soft);
     border-top:1px solid var(--hair);padding-top:14px;line-height:1.55;max-width:none}
 
   /* ---- mobile: employer opens it on a phone (desktop + print layouts untouched) ---- */
@@ -211,10 +209,10 @@
     .works .n{margin-top:12px;font-size:14.5px}
     .works .d{font-size:12.5px;line-height:1.55}
     .narr .proc{grid-auto-flow:row;grid-template-columns:1fr;grid-template-rows:none}
-    .also{font-size:12px}
+
     .proc{grid-template-columns:80px 1fr;column-gap:12px}
     .quote{font-size:16px;margin:16px 0 0}
-    .target{font-size:11px;line-height:1.6}
+    .target{font-size:12px;line-height:1.6}
     .letter p,.closing,.lead{max-width:none}
     .letter p{font-size:15px;line-height:1.65}
     .sign{font-size:15px}
@@ -370,7 +368,7 @@
     </div>
       <div class="narr">
         <div class="h3">How I Run an Account</div>
-        <p>Twenty years in IT and program management, and it was never the tooling that carried me: not the Gantt charts, not the kanban boards, not the sea of reports. What carried me was the customer. Their definition of success, seen from high enough that the whole picture fits in one frame &mdash; that is the work I love. I win when the customer does: their success made legible to both sides, their executives and our engineers, until delivery, renewal, and expansion stop being separate conversations. At SMPL Finance, that meant pulling both into one version of the truth &mdash; shared numbers, shared milestones &mdash; and the weekly collisions between release, marketing, and compliance stopped.</p>
+        <p>Twenty years in IT and program management, and it was never the tooling that carried me: not the Gantt charts, not the kanban boards, not the sea of reports. It was the customer. Their definition of success, seen from high enough that the whole picture fits in one frame &mdash; that is the work I love. I win when the customer does: success legible to executives and engineers alike, until delivery, renewal, and expansion are one conversation. At SMPL Finance, one shared version of the truth ended the weekly collisions between release, marketing, and compliance.</p>
         <div class="proc">
           <div class="step">LISTEN</div>
           <div class="what"><b>Learn what they are actually carrying.</b> <span>Not the org-chart version: revenue targets, campaign dates, budget runway.</span></div>
@@ -440,7 +438,7 @@
           <div class="d">A safely scoped agent riding a zero-dependency knowledge graph &mdash; full tool use, graph-native retrieval, self-fact-checking, and read-only by design. WebGL2 topology UI.</div>
         </div>
       </div>
-      <p class="also"><span class="out">Also built:</span> The Cockpit &middot; Daughters of Courage &middot; tbot &middot; Piper / tinypiper &middot; El Ni&ntilde;o &middot; Blue Dragon Coins</p>
+      
 
       <p class="closing">AI operations, project leadership, and business execution are no longer separate lanes. The companies that win will be the ones that never forget the human on the other side of the table — and build the systems that support them.</p>
     </div>
