@@ -149,8 +149,8 @@
     color:var(--ink);font-weight:600;text-transform:uppercase;margin:21px 0 9px}
   .h3::after{content:"";flex:1;height:1px;background:var(--hair)}
   .h3:first-child{margin-top:0}
-  .h3.snug{margin-top:6px}
-  .lead.snug{margin-bottom:5px}
+  .h3.snug{margin-top:4px}
+  .lead.snug{margin-bottom:4px}
   .traits{display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;margin:8px 0 17px;list-style:none}
   .traits li{font-size:12.5px;color:var(--ink);padding-left:18px;position:relative;line-height:1.48}
   .traits li::before{content:"";position:absolute;left:0;top:.68em;width:9px;height:1px;background:var(--gold)}
@@ -176,23 +176,23 @@
   /* capability map page */
   /* row-locked grid keeps category headers level across columns; items are
      ordered so paired rows have near-equal heights (no whitespace stagger) */
-  .capgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px 30px;margin-top:0}
-  .cap h4{font-family:var(--serif);font-style:italic;font-size:12px;letter-spacing:.03em;color:var(--soft);margin-bottom:4px;font-weight:600}
+  .capgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px 30px;margin-top:0}
+  .cap h4{font-family:var(--serif);font-style:italic;font-size:12px;letter-spacing:.03em;color:var(--soft);margin-bottom:3px;font-weight:600}
   /* keyword lines, not pill boxes — reads as a spec sheet, breathes on the page */
-  .chips{display:flex;flex-wrap:wrap;column-gap:8px;row-gap:4px}
-  .chips span{font-size:10.5px;line-height:1.45;color:var(--muted);white-space:nowrap}
+  .chips{display:flex;flex-wrap:wrap;column-gap:8px;row-gap:3px}
+  .chips span{font-size:10.5px;line-height:1.38;color:var(--muted);white-space:nowrap}
   .chips span+span::before{content:"\B7";color:var(--faint);margin-right:8px}
   .work{margin-top:0}
-  .workgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px}
+  .workgrid{display:grid;grid-template-columns:1fr 1fr;gap:5px 26px}
   .workgrid .item .n{font-size:12.5px;font-weight:650;color:var(--ink)}
-  .workgrid .item .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.38}
+  .workgrid .item .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
   .workgrid .item .d b{color:var(--sea);font-weight:600}
   .tag{font-family:var(--mono);font-size:8px;letter-spacing:.14em;font-weight:600;margin-left:8px;vertical-align:1.5px;white-space:nowrap}
   .tag.oss{color:var(--sea)}
   .tag.sys{color:var(--faint)}
   .tag.plat{color:var(--gold)}
   .out{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
-  .closing{margin-top:7px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--soft);
+  .closing{margin-top:5px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--soft);
     border-top:1px solid var(--hair);padding-top:7px;line-height:1.5;max-width:none}
 
   /* ---- mobile: employer opens it on a phone (desktop + print layouts untouched) ---- */
@@ -454,19 +454,19 @@
       <div class="capgrid">
         <div class="cap">
           <h4>Customer &amp; Account Leadership</h4>
-          <div class="chips"><span>Relationship Building</span><span>Strategic Account Acquisition</span><span>Customer Success Planning</span><span>Delivery Orchestration</span><span>Discovery &amp; Demos</span><span>POCs &amp; Onboarding</span><span>Security Questionnaires</span><span>Escalation Management</span><span>Executive Briefings</span><span>CRM Handoffs</span></div>
+          <div class="chips"><span>Relationship Building</span><span>Strategic Account Acquisition</span><span>Customer Success Planning</span><span>QBRs &amp; Executive Business Reviews</span><span>Renewals &amp; Expansion</span><span>Onboarding &amp; POCs</span><span>Discovery &amp; Demos</span><span>Escalation Management</span><span>Security Questionnaires</span><span>Executive Briefings</span><span>Voice of Customer</span><span>CRM &amp; Pipeline Workflows</span></div>
         </div>
         <div class="cap">
           <h4>Program &amp; Delivery Leadership</h4>
-          <div class="chips"><span>Technical Program Management</span><span>Program Governance</span><span>Cross-Functional Orchestration</span><span>Team Building</span><span>Budgeting &amp; Procurement</span><span>Vendor Management</span><span>Resource Management</span><span>Risk &amp; Dependency Management</span><span>Stakeholder Alignment</span><span>TDD &amp; Agile Cadences</span></div>
+          <div class="chips"><span>Technical Program Management</span><span>Program Governance</span><span>Cross-Functional Leadership</span><span>Stakeholder Alignment</span><span>Roadmaps &amp; Backlog Management</span><span>Risk &amp; Dependency Management</span><span>Budgeting &amp; Procurement</span><span>Vendor Management</span><span>Team Building</span><span>SDLC</span><span>Agile / Scrum / Kanban</span><span>TDD Culture</span><span>Jira &amp; Confluence</span><span>ClickUp</span><span>Executive Reporting</span></div>
         </div>
         <div class="cap">
           <h4>AI / Systems Automation</h4>
           <div class="chips"><span>LLM Agents</span><span>Multi-Agent Systems</span><span>Custom Harness Building</span><span>Task-Management Systems</span><span>Tool-Calling</span><span>RAG / Embeddings</span><span>Model Routing</span><span>Context Engineering</span><span>Proof-Gated Automation</span><span>Evaluation Flows</span><span>Approval Gates</span><span>Dashboards / Internal Tools</span></div>
         </div>
         <div class="cap">
-          <h4>Engineering / Tools / Stack</h4>
-          <div class="chips"><span>TypeScript</span><span>Python</span><span>Rust</span><span>Java</span><span>Node.js</span><span>Next.js / React</span><span>PostgreSQL</span><span>SQLite</span><span>REST APIs</span><span>Docker</span><span>AWS</span></div>
+          <h4>Technical Fluency</h4>
+          <div class="chips"><span>AI-Assisted Development (Coding Agents)</span><span>Java</span><span>Rust</span><span>C++</span><span>TypeScript</span><span>Python</span><span>SQL (PostgreSQL / SQLite)</span><span>REST APIs &amp; Webhooks</span><span>Git &amp; GitHub Actions (CI/CD)</span><span>Docker</span><span>Linux</span><span>AWS</span><span>Stripe / Billing Integrations</span></div>
         </div>
       </div>
 
