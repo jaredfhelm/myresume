@@ -97,17 +97,15 @@
 
   /* generic type */
   h2.sec{display:flex;align-items:center;gap:12px;font-family:var(--sans);font-size:10px;letter-spacing:.22em;
-    color:var(--muted);text-transform:uppercase;font-weight:700;margin:0 0 14px}
+    color:var(--muted);text-transform:uppercase;font-weight:700;margin:0 0 12px}
   h2.sec::after{content:"";flex:1;height:1px;background:var(--hair)}
   p{margin:0 0 11px;color:var(--ink)}
   .lead{color:var(--muted);font-size:13px;line-height:1.55}
-  /* narrative-page paragraphs sit one step below the letter on the type scale */
-  .page:nth-of-type(3) .body > p{font-size:13px;line-height:1.55}
   .quote{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--soft);border-left:2px solid var(--gold-dim);
-    padding:5px 0 5px 16px;margin:8px 0 0;line-height:1.5}
+    padding:4px 0 4px 16px;margin:4px 0 0;line-height:1.45}
 
   /* content body grows */
-  .body{flex:1;padding-top:12px}
+  .body{flex:1;padding-top:10px}
 
   /* cover letter */
   .target{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--gold);margin:0 0 26px}
@@ -126,13 +124,13 @@
   .cols .main{padding-right:28px;border-right:1px solid var(--hair)}
   .cols .side{padding-left:28px}
 
-  .job{margin-bottom:9px}
+  .job{margin-bottom:8px}
   .job .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
   .job .title{font-size:13.5px;font-weight:650;color:var(--ink)}
   .job .when{flex:none;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--gold);
     font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
   .job .org{font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--soft);margin:1px 0 4px;letter-spacing:.01em}
-  .job .desc{font-size:12px;color:var(--muted);line-height:1.45;text-wrap:pretty}
+  .job .desc{font-size:11.5px;color:var(--muted);line-height:1.42;text-wrap:pretty}
 
   .side .block{margin-bottom:16px}
   .side .block+.block{border-top:1px solid var(--hair);padding-top:15px}
@@ -149,11 +147,8 @@
     color:var(--ink);font-weight:600;text-transform:uppercase;margin:21px 0 9px}
   .h3::after{content:"";flex:1;height:1px;background:var(--hair)}
   .h3:first-child{margin-top:0}
-  .h3.snug{margin-top:4px}
-  .lead.snug{margin-bottom:4px}
-  .traits{display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;margin:8px 0 17px;list-style:none}
-  .traits li{font-size:12.5px;color:var(--ink);padding-left:18px;position:relative;line-height:1.48}
-  .traits li::before{content:"";position:absolute;left:0;top:.68em;width:9px;height:1px;background:var(--gold)}
+  .h3.snug{margin-top:16px}
+  .lead.snug{margin-bottom:14px}
 
   /* MAP / EXPOSE / BUILD — grid rows aligned to labels */
   .proc{display:grid;grid-template-columns:96px 1fr;row-gap:13px;column-gap:18px;margin:9px 0 17px}
@@ -162,38 +157,36 @@
   .proc .what b{color:var(--ink);font-weight:650}
   .proc .what span{color:var(--muted)}
 
-  .thesis{background:var(--panel);border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--hair);padding:13px 17px;margin-top:8px}
-  /* page 3 runs lighter than its siblings — open the vertical rhythm so it fills the sheet */
-  .page:nth-of-type(3) .h3{margin-top:26px}
-  .page:nth-of-type(3) .h3:first-child{margin-top:6px}
-  .page:nth-of-type(3) .traits{gap:14px 26px;margin:12px 0 20px}
-  .page:nth-of-type(3) .proc{row-gap:18px;margin:14px 0 22px}
-  .page:nth-of-type(3) .thesis{padding:16px 18px;margin-top:14px}
-  .page:nth-of-type(3) p{margin-bottom:12px}
-  .thesis .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;margin-bottom:7px}
-  .thesis p{font-size:12.5px;color:var(--soft);line-height:1.55;margin:0}
+
+  /* merged narrative band on the resume page */
+  .narr .h3{margin-top:12px}
+  .narr > p{font-size:12.5px;line-height:1.5;margin-bottom:6px;color:var(--ink)}
+  .narr .proc{grid-auto-flow:column;grid-template-rows:auto auto;grid-template-columns:repeat(3,1fr);row-gap:4px;column-gap:22px;margin:8px 0 0}
+  .narr .proc .what{font-size:11.5px;line-height:1.45}
 
   /* capability map page */
   /* row-locked grid keeps category headers level across columns; items are
      ordered so paired rows have near-equal heights (no whitespace stagger) */
-  .capgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px 30px;margin-top:0}
-  .cap h4{font-family:var(--serif);font-style:italic;font-size:12px;letter-spacing:.03em;color:var(--soft);margin-bottom:3px;font-weight:600}
+  .capgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-top:6px}
+  .cap h4{font-family:var(--serif);font-style:italic;font-size:12.5px;letter-spacing:.03em;color:var(--soft);margin-bottom:6px;font-weight:600}
   /* keyword lines, not pill boxes — reads as a spec sheet, breathes on the page */
-  .chips{display:flex;flex-wrap:wrap;column-gap:8px;row-gap:3px}
-  .chips span{font-size:10.5px;line-height:1.38;color:var(--muted);white-space:nowrap}
+  .chips{display:flex;flex-wrap:wrap;column-gap:8px;row-gap:5px}
+  .chips span{font-size:10.5px;line-height:1.62;color:var(--muted);white-space:nowrap}
   .chips span+span::before{content:"\B7";color:var(--faint);margin-right:8px}
-  .work{margin-top:0}
-  .workgrid{display:grid;grid-template-columns:1fr 1fr;gap:5px 26px}
-  .workgrid .item .n{font-size:12.5px;font-weight:650;color:var(--ink)}
-  .workgrid .item .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
-  .workgrid .item .d b{color:var(--sea);font-weight:600}
   .tag{font-family:var(--mono);font-size:8px;letter-spacing:.14em;font-weight:600;margin-left:8px;vertical-align:1.5px;white-space:nowrap}
   .tag.oss{color:var(--sea)}
   .tag.sys{color:var(--faint)}
   .tag.plat{color:var(--gold)}
+  .works{display:grid;grid-template-columns:150px 1fr;row-gap:26px;column-gap:20px;align-items:baseline}
+  .works .item{display:contents}
+  .works .n{font-size:13.5px;font-weight:650;color:var(--ink)}
+  .works .n .tag{display:block;margin:3px 0 0}
+  .works .d{font-size:13px;color:var(--muted);line-height:1.6}
+  .also{margin-top:26px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--hair);padding-top:16px}
+  .also .out{margin-right:8px}
   .out{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
-  .closing{margin-top:5px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--soft);
-    border-top:1px solid var(--hair);padding-top:7px;line-height:1.5;max-width:none}
+  .closing{margin-top:20px;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--soft);
+    border-top:1px solid var(--hair);padding-top:14px;line-height:1.55;max-width:none}
 
   /* ---- mobile: employer opens it on a phone (desktop + print layouts untouched) ---- */
   @media screen and (max-width:820px){
@@ -213,7 +206,12 @@
     .cols{grid-template-columns:1fr;gap:0}
     .cols .main{padding-right:0;border-right:0;border-bottom:1px solid var(--hair);padding-bottom:18px;margin-bottom:18px}
     .cols .side{padding-left:0}
-    .capgrid,.workgrid,.traits{grid-template-columns:1fr;gap:13px 0}
+    .capgrid{grid-template-columns:1fr;gap:13px 0}
+    .works{grid-template-columns:1fr;row-gap:4px}
+    .works .n{margin-top:12px;font-size:14.5px}
+    .works .d{font-size:12.5px;line-height:1.55}
+    .narr .proc{grid-auto-flow:row;grid-template-columns:1fr;grid-template-rows:none}
+    .also{font-size:12px}
     .proc{grid-template-columns:80px 1fr;column-gap:12px}
     .quote{font-size:16px;margin:16px 0 0}
     .target{font-size:11px;line-height:1.6}
@@ -231,14 +229,10 @@
     .edu{font-size:13.5px}
     .edu .field{font-size:10.5px}
     .h3{font-size:14px}
-    .traits li{font-size:13.5px;line-height:1.55}
     .proc .step{font-size:11px}
     .proc .what{font-size:14px;line-height:1.55}
-    .thesis p{font-size:14px}
     .cap h4{font-size:14px}
     .chips span{font-size:12px}
-    .workgrid .item .n{font-size:14.5px}
-    .workgrid .item .d{font-size:12px;line-height:1.5}
     .tag{font-size:9px}
     .out{font-size:10.5px}
     .closing{font-size:14px}
@@ -318,59 +312,51 @@
       </div>
     </div>
     <div class="quote">Never let the person across the table be surprised.</div>
-    <div class="body cols">
+    <div class="body"><div class="cols">
       <div class="main">
         <h2 class="sec">Experience</h2>
 
         <div class="job">
           <div class="row"><div class="title">Founder / AI Operations Specialist</div><div class="when">2023 – PRES</div></div>
           <div class="org">Sentry Mandate LLC &amp; Independent Consulting</div>
-          <div class="desc">Left corporate delivery the year GPT arrived and founded Sentry Mandate at the front edge of the AI shift, combining a lifetime of operations and customer relations with the new machines. I build my own coding agents and the proof-gated systems that run them. <span class="out">Shipped:</span> AIOS, tinygate, Daughters of Courage, The Cockpit, Microsoft Atlas, Piper, tbot, gritty, El Niño, Blue Dragon (page 4).</div>
+          <div class="desc">Founded Sentry Mandate the year GPT arrived — a lifetime of operations and customer relations, pointed at the new machines. I build my own coding agents and the proof-gated systems that run them. <span class="out">Shipped:</span> AIOS, tinygate, gritty, Atlas, and more (page 3).</div>
         </div>
 
         <div class="job">
           <div class="row"><div class="title">Senior Project Manager</div><div class="when">2021 – 2023</div></div>
           <div class="org">SMPL Finance</div>
-          <div class="desc">Walked into a financial product moving faster than its process: scope shifting weekly, executives and engineering each holding their own version of the truth. Took over program governance — procurement and vendor coordination, resource management, risk and dependency tracking — and put both sides on one set of business and technical reports. Release, marketing, and compliance milestones stopped colliding.</div>
+          <div class="desc">Took over program governance for a financial product moving faster than its process — procurement, vendor coordination, resource management, risk and dependency tracking — and put executives and engineering on one shared set of business and technical reports.</div>
         </div>
 
         <div class="job">
           <div class="row"><div class="title">Technical Project Manager</div><div class="when">2018 – 2020</div></div>
           <div class="org">Black Box Code</div>
-          <div class="desc">Clients came to us when their own stack had become the enemy, and we rebuilt it from the inside out. I orchestrated client and internal engineering as one unit, tailored task-management systems and automations to each engagement, and jumped in front of the train so architects, developers, and designers never felt the scope churn. Engineers kept their focus, TDD took root, and delivery dates held.</div>
+          <div class="desc">I orchestrated client and internal engineering as one unit, tailored task-management systems to each engagement, and jumped in front of the train so architects and developers never felt the scope churn. TDD took root, and delivery dates held.</div>
         </div>
 
         <div class="job">
           <div class="row"><div class="title">General Manager &amp; Lead Systems Engineer</div><div class="when">2008 – 2018</div></div>
           <div class="org">Auto Auctions of America</div>
-          <div class="desc">Joined to pay for school (UVU CSIS); stayed a decade and rose to General Manager, hiring and leading the floor and office teams. Increased sales year over year for ten straight years — refactoring the aging Java-based auction software and website, running creative advertising, winning dealer and bank accounts, and selling on the floor myself. Hundreds of cars a week: customers for life, built on radical trust.</div>
+          <div class="desc">Rose from paying for school to General Manager — hiring and leading the floor and office teams, modernizing the auction software and website, winning dealer and bank accounts, and selling on the floor myself. Ten straight years of year-over-year sales growth: customers for life, built on radical trust.</div>
         </div>
 
         <div class="job">
           <div class="row"><div class="title">Early Experience</div><div class="when">EARLY</div></div>
           <div class="org">Mrs. Fields Cookies (Corporate) · Sizzler</div>
-          <div class="desc">Corporate catalog sales and strategic account acquisition at Mrs. Fields HQ; Sizzler host/server at fifteen — working, selling, and serving ever since.</div>
-        </div>
+                  </div>
       </div>
 
       <div class="side">
         <div class="block">
-          <h2 class="sec">Profile</h2>
-          <p>Lifelong technical builder, career spent customer-facing — from a decade on a live auction floor to enterprise software delivery. Writing code since 1999; selling and serving since fifteen.</p>
-          <p>Ownership is my empathy: I have carried payroll, runway, and launch dates, so I understand the account owner across the table — and I can read their stack as fluently as their P&amp;L.</p>
+          <h2 class="sec">The Seam I Live On</h2>
+          <p>Most careers pick a side: technical or customer-facing. Mine never did &mdash; auction floor, engineering shop, finance PMO, AI lab. Every chapter, both at once.</p>
+          <p>Writing code since 1999; selling and serving since fifteen. Ownership is my empathy: I have carried payroll, runway, and launch dates &mdash; and I can read a customer&rsquo;s stack as fluently as their P&amp;L.</p>
         </div>
         <div class="block">
           <h2 class="sec">Best-Fit Roles</h2>
           <ul class="tags">
             <li>Customer Success Account Manager</li><li>Technical Account Manager</li>
             <li>Solutions Lead</li><li>Technical Program Manager</li><li>Senior PM</li>
-          </ul>
-        </div>
-        <div class="block">
-          <h2 class="sec">Core Strengths</h2>
-          <ul class="tags">
-            <li>Relationship Building</li><li>Stakeholder Alignment</li><li>Escalation Shielding</li>
-            <li>Executive Reporting</li><li>Technical Deep Dives</li><li>AI Automation</li>
           </ul>
         </div>
         <div class="block edu">
@@ -382,56 +368,20 @@
         </div>
       </div>
     </div>
+      <div class="narr">
+        <div class="h3">How I Run an Account</div>
+        <p>Twenty years in IT and program management, and it was never the tooling that carried me: not the Gantt charts, not the kanban boards, not the sea of reports. What carried me was the customer. Their definition of success, seen from high enough that the whole picture fits in one frame &mdash; that is the work I love. I win when the customer does: their success made legible to both sides, their executives and our engineers, until delivery, renewal, and expansion stop being separate conversations. At SMPL Finance, that meant pulling both into one version of the truth &mdash; shared numbers, shared milestones &mdash; and the weekly collisions between release, marketing, and compliance stopped.</p>
+        <div class="proc">
+          <div class="step">LISTEN</div>
+          <div class="what"><b>Learn what they are actually carrying.</b> <span>Not the org-chart version: revenue targets, campaign dates, budget runway.</span></div>
+          <div class="step">TRANSLATE</div>
+          <div class="what"><b>Bridge the two languages.</b> <span>Specs into business outcomes; business pressure into precise, respectful asks.</span></div>
+          <div class="step">DELIVER</div>
+          <div class="what"><b>Make trust compound.</b> <span>Honest status, early escalation, and proof &mdash; renewals start from evidence.</span></div>
+        </div>
+      </div>
+    </div>
     <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 2</span></div>
-  </section>
-
-  <!-- ============ PAGE 3 — LEADERSHIP NARRATIVE ============ -->
-  <section class="page">
-    <div class="head">
-      <span class="avatar" role="img" aria-label="Jared F. Helm"></span>
-      <div class="hgroup">
-        <div class="hrow">
-          <div class="name">JARED F. HELM</div>
-          <div class="kicker">Leadership Narrative</div>
-        </div>
-        <div class="contact">
-          <span>jaredfhelm@gmail.com</span><span>385-237-5056</span>
-          <span>linkedin.com/in/jaredfhelm</span><span>github.com/jaredfhelm</span><span>sentrymandate.com</span>
-        </div>
-      </div>
-    </div>
-    <div class="body">
-      <div class="h3">The Seam I Live On</div>
-      <p class="lead">Most careers pick a side: technical or customer-facing. Mine never did. Every chapter — auction floor, engineering shop, finance PMO, AI lab — has been both at once. That seam is where enterprise accounts are won and kept.</p>
-
-      <div class="h3">Why Customers Trust Me With Their Accounts</div>
-      <p>Trust at a live auction is earned in public: same floor, same faces, week after week, with money on the line. Ten years of that builds a reflex — never let the person across the table be surprised. As the face of a company, I bring bad news early and with a plan, translate the roadmap into their outcomes, and stay accountable long after the signature.</p>
-      <ul class="traits">
-        <li>Face-of-the-company presence, earned on live auction floors</li>
-        <li>Owner’s empathy — I know what runway and payroll feel like</li>
-        <li>Escalation shield: problems find me before they find the team</li>
-        <li>Fluent in complex specs, architectures, and security postures</li>
-        <li>PM instincts — deadlines exist because campaigns and budgets do</li>
-        <li>Builder: I can prototype the fix, not just file the ticket</li>
-      </ul>
-
-      <div class="h3">How I Run an Account</div>
-      <p>Twenty years in IT and program management, and it was never the tooling that carried me: not the Gantt charts, not the kanban boards, not the sea of reports. What carried me was the customer. Their definition of success, seen from high enough that the whole picture fits in one frame — that is the work I love. I win when the customer does: their success made legible to both sides, their executives and our engineers, until delivery, renewal, and expansion stop being separate conversations. At SMPL Finance, that meant pulling both into one version of the truth — shared numbers, shared milestones — and the weekly collisions between release, marketing, and compliance stopped.</p>
-      <div class="proc">
-        <div class="step">LISTEN</div>
-        <div class="what"><b>Learn what they are actually carrying.</b> <span>Not the org-chart version — revenue targets, campaign dates, budget runway, and the people whose jobs depend on delivery.</span></div>
-        <div class="step">TRANSLATE</div>
-        <div class="what"><b>Bridge the two languages.</b> <span>Technical specs into business outcomes for their executives; business pressure into precise, respectful asks for our engineers.</span></div>
-        <div class="step">DELIVER</div>
-        <div class="what"><b>Make trust compound.</b> <span>Program reviews, delivery cadence, honest status, early escalation, and proof — so every renewal conversation starts from evidence, not persuasion.</span></div>
-      </div>
-
-      <div class="thesis">
-        <div class="lbl">Operating Thesis</div>
-        <p>The account everyone else calls difficult is usually the one nobody has listened to. The tangled stack, the shifting scope, the stakeholders who have stopped believing — I learn the business, earn a seat at the table, and the relationship outlasts the contract.</p>
-      </div>
-    </div>
-    <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 3</span></div>
   </section>
 
   <!-- ============ PAGE 4 — CAPABILITY MAP ============ -->
@@ -472,54 +422,29 @@
 
       <div class="h3 snug">Recent Hands-On Work</div>
       <p class="lead snug">Designed, built, and shipped by me.</p>
-      <div class="work">
-        <div class="workgrid">
-          <div class="item">
-            <div class="n">AIOS — my swing at what the operating system becomes next<span class="tag plat">PLATFORM</span></div>
-            <div class="d">What Windows and macOS look like after AI: agents doing real work under real accountability. 1,100+ skills, a typed capability graph, one rule — <b>work is finished when the test passes, not when the AI says so</b>.</div>
-          </div>
-          <div class="item">
-            <div class="n">tbot<span class="tag sys">TRADING</span></div>
-            <div class="d">Pure-math Rust market maker for Polymarket crypto contracts — 20 crates pricing fair value in nanoseconds, no LLM. 67% win rate in months of simulation against live market data; held from real trading for compliance.</div>
-          </div>
-          <div class="item">
-            <div class="n">Daughters of Courage<span class="tag sys">AUTO-RESEARCH</span></div>
-            <div class="d">Autonomous cancer-research system — 18 specialist AI “brains” write evidence-graded, PubMed-cited theses (367 canonized) and debate to consensus under an AI arbiter, giving patients calm, sourced answers.</div>
-          </div>
-          <div class="item">
-            <div class="n">The Cockpit<span class="tag sys">LEAD-GEN</span></div>
-            <div class="d">Vehicle-lead operating system — de-dupes cross-posted listings into one canonical vehicle, then a deterministic state-machine outreach funnel. AES-256-GCM-vaulted PII, every reveal audited. In production.</div>
-          </div>
-          <div class="item">
-            <div class="n">tinygate<span class="tag oss">MIT · OSS</span></div>
-            <div class="d">One-file, zero-dependency proof gate for AI agents — “done” means a stored proof command exiting green. Cut tokens 32% at matched quality on a 100-task benchmark.</div>
-          </div>
-          <div class="item">
-            <div class="n">Piper / tinypiper<span class="tag sys">AGENT</span></div>
-            <div class="d">Hybrid AI agent distilled to one ~130-line file — deterministic routing: no-LLM instant answers where possible, local models next, cloud only when needed. Sandboxed tools.</div>
-          </div>
-          <div class="item">
-            <div class="n">Microsoft Atlas<span class="tag sys">GRAPH</span></div>
-            <div class="d">Zero-dependency Node.js knowledge graph of Microsoft’s org — deterministic content-addressed ingestion, graph-native BM25 retrieval (no vectors), WebGL2 topology UI, read-only self-fact-checking assistant.</div>
-          </div>
-          <div class="item">
-            <div class="n">El Niño<span class="tag sys">FORECASTING</span></div>
-            <div class="d">Deterministic ENSO→commodity forecasting engine — every prediction sealed in a write-once ledger and graded against reality; a single as-of gate makes future-data leakage impossible.</div>
-          </div>
-          <div class="item">
-            <div class="n">Blue Dragon Coins<span class="tag sys">E-COMMERCE</span></div>
-            <div class="d">E-commerce company I built end to end — a Rust live-commerce trust stack: SHA-256-locked pack manifests, append-only audit ledger, custody reconciliation across public site, buyer app, and admin.</div>
-          </div>
-          <div class="item">
-            <div class="n">gritty<span class="tag oss">MIT · OSS</span><span class="tag sys">RUST</span></div>
-            <div class="d">Native Windows terminal multiplexer in Rust, rendered on CPU — no GPU, no Electron. Tabs, splits, session restore in a sub-800 KB binary.</div>
-          </div>
+      <div class="works">
+        <div class="item">
+          <div class="n">AIOS<span class="tag plat">PLATFORM</span></div>
+          <div class="d">Agent operating system &mdash; 1,100+ skills, a typed capability graph, and one rule: work is finished when the test passes, not when the AI says so.</div>
+        </div>
+        <div class="item">
+          <div class="n">tinygate<span class="tag oss">MIT &middot; OSS</span></div>
+          <div class="d">One-file, zero-dependency proof gate for AI agents &mdash; cut tokens 32% at matched quality on a 100-task benchmark.</div>
+        </div>
+        <div class="item">
+          <div class="n">gritty<span class="tag oss">MIT &middot; OSS</span></div>
+          <div class="d">Native Windows terminal multiplexer in Rust &mdash; no GPU, no Electron; tabs, splits, and session restore in a sub-800 KB binary.</div>
+        </div>
+        <div class="item">
+          <div class="n">Atlas<span class="tag sys">GRAPH</span></div>
+          <div class="d">Zero-dependency Node.js knowledge graph &mdash; deterministic content-addressed ingestion, graph-native BM25 retrieval (no vectors), WebGL2 topology UI.</div>
         </div>
       </div>
+      <p class="also"><span class="out">Also built:</span> The Cockpit &middot; Daughters of Courage &middot; tbot &middot; Piper / tinypiper &middot; El Ni&ntilde;o &middot; Blue Dragon Coins</p>
 
       <p class="closing">AI operations, project leadership, and business execution are no longer separate lanes. The companies that win will be the ones that never forget the human on the other side of the table — and build the systems that support them.</p>
     </div>
-    <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 4</span></div>
+    <div class="foot"><span>JARED F. HELM · EXECUTIVE PORTFOLIO</span><span>Page 3</span></div>
   </section>
 
 </div>
